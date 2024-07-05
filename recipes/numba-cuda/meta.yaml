@@ -1,0 +1,50 @@
+{% set name = "numba-cuda" %}
+{% set version = "0.0.2" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://github.com/NVIDIA/numba-cuda/archive/v0.0.2.tar.gz
+  sha256: ba0a5329e553daefe5d594a1103245e2bc99f58978c551e715123f5b7d745c7e
+
+build:
+  noarch: python
+  script: {{ PYTHON }} -m pip install . -vv
+  number: 0
+
+requirements:
+  build:
+    - cmake >= 3.26.4
+    - ninja
+  host:
+    - python
+    - pip
+    - scikit-build-core
+  run:
+    - python
+    - numba >=0.59.1
+
+test:
+  imports:
+    - numba_cuda
+  requires:
+    - pip
+  commands:
+    - pip check
+
+about:
+  home: https://github.com/NVIDIA/numba-cuda
+  summary: 'A CUDA target for Numba'
+  description: |
+    A Numba target for compiling Python code to excute on CUDA GPUs.
+  license: BSD-2-Clause
+  license_family: BSD
+  license_file: LICENSE
+  doc_url: https://nvidia.github.io/numba-cuda
+  dev_url: https://github.com/NVIDIA/numba-cuda
+
+extra:
+  recipe-maintainers:
+    - gmarkall
