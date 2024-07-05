@@ -17,6 +17,8 @@ build:
 requirements:
   build:
     - cmake >=3.26.4
+    # No C code is compiled, but CMake fails to run if there is no C compiler
+    - {{ compiler('c') }}
     - ninja
   host:
     - python
