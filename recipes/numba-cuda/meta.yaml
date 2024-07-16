@@ -6,8 +6,8 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/NVIDIA/numba-cuda/archive/v0.0.2.tar.gz
-  sha256: ba0a5329e553daefe5d594a1103245e2bc99f58978c551e715123f5b7d745c7e
+  url: https://github.com/gmarkall/numba-cuda/archive/2935d323fd108d30754bc5eb1fc86de8cf0e702b.tar.gz
+  sha256: 51e845fd84adfb22c27f93d9e277fb418d53c8d824bc0147a350c49a8529eee2
 
 build:
   noarch: python
@@ -15,15 +15,10 @@ build:
   number: 0
 
 requirements:
-  build:
-    - cmake >=3.26.4
-    # No C code is compiled, but CMake fails to run if there is no C compiler
-    - {{ compiler('c') }}
-    - ninja
   host:
     - python
     - pip
-    - scikit-build-core
+    - setuptools
   run:
     - python
     - numba >=0.59.1
