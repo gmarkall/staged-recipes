@@ -1,13 +1,13 @@
 {% set name = "numba-cuda" %}
-{% set version = "0.0.2" %}
+{% set version = "0.0.15" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/gmarkall/numba-cuda/archive/2935d323fd108d30754bc5eb1fc86de8cf0e702b.tar.gz
-  sha256: 51e845fd84adfb22c27f93d9e277fb418d53c8d824bc0147a350c49a8529eee2
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: TBC
 
 build:
   noarch: python
